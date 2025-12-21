@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [2025.12.21-SNAPSHOT] - 2025-12-21
+
 ### Added
 
 - Initial release of Lscythe Version Catalogs
@@ -19,4 +21,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - GitHub Actions workflows for CI, security scanning, and automated publishing
 - Renovate configuration for automated dependency updates
 
-[unreleased]: https://github.com/lscythe/gradle-version-catalog/compare/v2025.12.21.1...main
+[unreleased]: https://github.com/lscythe/gradle-version-catalog/compare/v2025.12.21-SNAPSHOT...main
+[2025.12.21-SNAPSHOT]: https://github.com/lscythe/gradle-version-catalog/compare/v0.0.0...v2025.12.21-SNAPSHOT

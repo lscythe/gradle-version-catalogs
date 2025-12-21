@@ -28,14 +28,10 @@ function diff_link() {
 #endregion
 
 # Handle --snapshot option
+snapshot=false
 if [[ "${1:-}" == "--snapshot" ]]; then
-  version="$(date +%Y.%m.%d)-SNAPSHOT"
-  echo "🔧 Publishing SNAPSHOT version: $version"
-  echo
-  VERSION="$version" ./gradlew publishAllPublicationsToMavenCentralRepository
-  echo
-  echo "🎉 SNAPSHOT published: $version"
-  exit 0
+  snapshot=true
+  shift
 fi
 
 # 0. Fetch remote changes
@@ -59,6 +55,11 @@ if [[ "$last_version" == "$version" ]]; then
     ((patch++))
   done
   version="$version.$patch"
+fi
+
+# Append -SNAPSHOT suffix if snapshot mode
+if [[ "$snapshot" == true ]]; then
+  version="$version-SNAPSHOT"
 fi
 
 echo "🚀 Release $last_version → $version"
