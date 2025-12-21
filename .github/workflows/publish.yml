@@ -4,6 +4,12 @@ on:
   push:
     tags:
       - 'v*'
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version to publish (e.g., 2025.12.21-SNAPSHOT)'
+        required: true
+        type: string
 
 jobs:
   publish:
@@ -17,9 +23,13 @@ jobs:
         with:
           fetch-depth: 0
       
-      - name: Set version from tag
+      - name: Set version
         run: |
-          VERSION="${GITHUB_REF#refs/tags/v}"
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            VERSION="${{ inputs.version }}"
+          else
+            VERSION="${GITHUB_REF#refs/tags/v}"
+          fi
           echo "VERSION=$VERSION" >> $GITHUB_ENV
       
       - name: Get commits since last tag
