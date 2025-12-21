@@ -3,8 +3,10 @@
 # Prepares the catalogs for release.
 #
 # Usage: ./release.sh [version]
+#        ./release.sh --snapshot
 #
 # If version is not provided, uses current date (YYYY.MM.DD format).
+# Use --snapshot to publish a SNAPSHOT version without git commits/tags.
 
 set -euo pipefail
 
@@ -24,6 +26,17 @@ function diff_link() {
   echo -n "$github_repository_url/compare/${1}...${2}"
 }
 #endregion
+
+# Handle --snapshot option
+if [[ "${1:-}" == "--snapshot" ]]; then
+  version="$(date +%Y.%m.%d)-SNAPSHOT"
+  echo "🔧 Publishing SNAPSHOT version: $version"
+  echo
+  VERSION="$version" ./gradlew publishAllPublicationsToMavenCentralRepository
+  echo
+  echo "🎉 SNAPSHOT published: $version"
+  exit 0
+fi
 
 # 0. Fetch remote changes
 echo "⏳ Updating local repository..."
