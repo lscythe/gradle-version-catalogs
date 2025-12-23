@@ -73,6 +73,3 @@ tooling = [
     "ui-tooling",
     "ui-tooling-preview",
 ]
-
-[plugins]
-compiler = "org.jetbrains.kotlin.plugin.compose:2.3.0"

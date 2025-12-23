@@ -7,13 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-## [2025.12.21.3] - 2025-12-21
 
-## [2025.12.21.2] - 2025-12-21
+### Added
 
-## [2025.12.21] - 2025-12-21
+- `versions-androidx`: Added `com.android.tools.build:gradle` and `com.android.tools.build:gradle-api`
+- `versions-kotlinx`: Added `org.jetbrains.kotlin:kotlin-gradle-plugin` and `org.jetbrains.kotlinx:binary-compatibility-validator`
+- `versions-compose-multiplatform`: Added `org.jetbrains.kotlin:compose-compiler-gradle-plugin`
+- `versions-utils`: Added `com.dropbox.dependency-guard`, `org.jetbrains.dokka`, `com.diffplug.spotless` and `com.lemonappdev:konsist`
 
-## [2025.12.21.1] - 2025-12-21
+### Changed
+- `versions-compose-jetpack`: Move compiler to `versions-compose-multiplatform`
 
 ## [2025.12.21] - 2025-12-21
 

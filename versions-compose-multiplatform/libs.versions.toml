@@ -3,10 +3,13 @@
 [versions]
 coil = "3.3.0"
 compose = "1.9.3"
+kotlin = "2.3.0"
 lifecycle = "2.9.6"
 navigation = "2.9.1"
 
 [libraries]
+# Gradle Plugin
+gradle-compose-compiler = { module = "org.jetbrains.kotlin:compose-compiler-gradle-plugin", version.ref = "kotlin" }
 # Animation
 animation = { module = "org.jetbrains.compose.animation:animation", version.ref = "compose" }
 animation-core = { module = "org.jetbrains.compose.animation:animation-core", version.ref = "compose" }
@@ -65,4 +68,4 @@ material3 = [
 
 [plugins]
 compose = { id = "org.jetbrains.compose", version.ref = "compose" }
-compose-compiler = "org.jetbrains.kotlin.plugin.compose:2.3.0"
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
