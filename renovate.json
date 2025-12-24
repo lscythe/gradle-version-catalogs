@@ -1,5 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+
   "extends": [
     "config:recommended",
     ":disableDependencyDashboard"
@@ -8,7 +9,7 @@
   "labels": ["dependencies"],
   "timezone": "Asia/Jakarta",
 
-  "schedule": ["0 0 * * 0"],
+  "schedule": ["weekly"],
 
   "ignoreUnstable": true,
 
@@ -20,22 +21,24 @@
       "groupSlug": "all",
       "semanticCommitType": "deps",
       "matchUpdateTypes": ["minor", "patch"],
-      "autoMerge": true
+      "automerge": true
     },
     {
-      "description": "Major updates on the first weekend of the month",
+      "description": "Major updates monthly, weekends only",
       "matchManagers": ["gradle", "gradle-wrapper"],
       "matchUpdateTypes": ["major"],
       "semanticCommitType": "deps",
-      "schedule": ["on the first weekend of the month"],
-      "autoMerge": false
+      "schedule": ["monthly"],
+      "automerge": false
     },
     {
       "description": "Auto-merge GitHub Actions",
       "matchManagers": ["github-actions"],
       "groupName": "github-actions",
       "semanticCommitType": "ci",
-      "autoMerge": true
+      "automerge": true
     }
-  ]
+  ],
+
+  "allowedSchedules": ["* * * * 6,0"]
 }
