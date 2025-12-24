@@ -19,14 +19,17 @@
       "groupName": "all non-major gradle dependencies",
       "semanticCommitType": "deps",
       "automerge": true,
-      "schedule": ["every weekend"]
+      "schedule": ["once a week"]
     },
     {
       "description": "Major updates monthly, first weekend of the month",
       "matchManagers": ["gradle", "gradle-wrapper"],
       "matchUpdateTypes": ["major"],
       "semanticCommitType": "deps",
-      "schedule": ["before 5am on the first Saturday of the month"],
+      "schedule": [
+        "* 0-4,22-23 * * 1-5",
+        "* * * * 0,6"
+      ],
       "automerge": false
     },
     {
@@ -35,7 +38,7 @@
       "groupName": "github-actions",
       "semanticCommitType": "ci",
       "automerge": true,
-      "schedule": ["every weekend"]
+      "schedule": ["once a week"]
     }
   ]
 }
