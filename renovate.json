@@ -1,50 +1,41 @@
 {
-    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-    "extends": [
-        "config:recommended",
-        ":disableDependencyDashboard"
-    ],
-    "labels": [
-        "dependencies"
-    ],
-    "schedule": [
-        "* * * * 0,6"
-    ],
-    "timezone": "Asia/Jakarta",
-    "packageRules": [
-        {
-            "matchManagers": [
-                "gradle",
-                "gradle-wrapper"
-            ],
-            "groupName": "all dependencies",
-            "groupSlug": "all",
-            "commitMessagePrefix": "deps:",
-            "semanticCommitType": "deps",
-            "matchPackageNames": [
-                "*"
-            ],
-            "matchUpdateTypes": [
-                "minor",
-                "patch"
-            ],
-            "autoMerge": true
-        },
-        {
-            "matchManagers": [
-                "github-actions"
-            ],
-            "groupName": "github-actions",
-            "commitMessagePrefix": "ci:",
-            "semanticCommitType": "ci"
-        }
-    ],
-    "gradle": {
-        "managerFilePatterns": [
-            "/(^|/)build\\.gradle\\.kts$/",
-            "/(^|/)settings\\.gradle\\.kts$/",
-            "/(^|/)libs\\.versions\\.toml$/",
-            "/(^|/)gradle\\.properties$/"
-        ]
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    ":disableDependencyDashboard"
+  ],
+
+  "labels": ["dependencies"],
+  "timezone": "Asia/Jakarta",
+
+  "schedule": ["0 0 * * 0"],
+
+  "ignoreUnstable": true,
+
+  "packageRules": [
+    {
+      "description": "Weekly minor & patch updates for Gradle",
+      "matchManagers": ["gradle", "gradle-wrapper"],
+      "groupName": "all dependencies",
+      "groupSlug": "all",
+      "semanticCommitType": "deps",
+      "matchUpdateTypes": ["minor", "patch"],
+      "autoMerge": true
+    },
+    {
+      "description": "Major updates on the first weekend of the month",
+      "matchManagers": ["gradle", "gradle-wrapper"],
+      "matchUpdateTypes": ["major"],
+      "semanticCommitType": "deps",
+      "schedule": ["on the first weekend of the month"],
+      "autoMerge": false
+    },
+    {
+      "description": "Auto-merge GitHub Actions",
+      "matchManagers": ["github-actions"],
+      "groupName": "github-actions",
+      "semanticCommitType": "ci",
+      "autoMerge": true
     }
+  ]
 }
