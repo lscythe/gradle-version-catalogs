@@ -17,7 +17,7 @@ ktor = "3.3.3"
 leakcanary = "2.14"
 konsist = "0.17.3"
 # Logging
-log4k = "1.1.2"
+log4k = "1.2.1"
 logback = "1.5.23"
 maven-publish = "0.35.0"
 mockk = "1.14.7"
