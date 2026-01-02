@@ -3,7 +3,7 @@
 [![Main CI](https://github.com/lscythe/gradle-version-catalogs/actions/workflows/ci.yml/badge.svg)](https://github.com/lscythe/gradle-version-catalogs/actions/workflows/ci.yml)
 [![Security](https://github.com/lscythe/gradle-version-catalogs/actions/workflows/security.yml/badge.svg)](https://github.com/lscythe/gradle-version-catalogs/actions/workflows/security.yml)
 [![Maven Central Version](https://img.shields.io/maven-central/v/dev.lscythe.tool/versions-androidx)](https://central.sonatype.com/search?q=g:dev.lscythe.tool)
-[![Kotlin](https://img.shields.io/badge/Kotlin-2.1.0-blue.svg)](https://kotlinlang.org)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.3.0-blue.svg)](https://kotlinlang.org)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 Curated Gradle version catalogs for Kotlin projects. Provides centralized, consistent dependency management across multiple projects with pre-configured bundles for common use cases.
@@ -14,7 +14,7 @@ Curated Gradle version catalogs for Kotlin projects. Provides centralized, consi
 - Pre-configured bundles for common dependency combinations
 - Automated version updates via Dependabot and version-catalog-update plugin
 - Separate catalogs for different library groups
-- Compatible with Gradle 7.4+
+- Compatible with Gradle 7.6+
 
 ## Available Catalogs
 
